@@ -89,7 +89,7 @@ namespace dry
   }
   template <typename T, typename U>
   inline Vector2<T> operator/ (U f, const Vector2<T>& vec) {
-    return vec / f;
+    return Vector3<T>(f / vec.x, f / vec.y);
   }
   template <typename T, typename U>
   inline Vector2<T> operator+ (Vector2<T> vec, U f) {
@@ -107,7 +107,7 @@ namespace dry
   }
   template <typename T, typename U>
   inline Vector2<T> operator- (U f, const Vector2<T>& vec) {
-    return vec - f;
+    return Vector3<T>(f - vec.x, f - vec.y);
   }
 
   template <typename T, typename U>
@@ -126,7 +126,7 @@ namespace dry
   }
   template <typename T, typename U>
   inline Vector3<T> operator/ (U f, const Vector3<T>& vec) {
-    return vec / f;
+    return Vector3<T>(f / vec.x, f / vec.y, f / vec.z);
   }
   template <typename T, typename U>
   inline Vector3<T> operator+ (Vector3<T> vec, U f) {
@@ -142,11 +142,9 @@ namespace dry
     vec -= f;
     return vec;
   }
-
-  // TODO: FIX BUG HERE!
   template <typename T, typename U>
   inline Vector3<T> operator- (U f, const Vector3<T>& vec) {
-    return vec - f;
+    return Vector3<T>(f - vec.x, f - vec.y, f - vec.z);
   }
 
   template <typename T, typename U>
@@ -165,7 +163,7 @@ namespace dry
   }
   template <typename T, typename U>
   inline Vector4<T> operator/ (U f, const Vector4<T>& vec) {
-    return vec / f;
+    return Vector3<T>(f / vec.x, f / vec.y, f / vec.z, f / vec.w);
   }
   template <typename T, typename U>
   inline Vector4<T> operator+ (Vector4<T> vec, U f) {
@@ -183,6 +181,6 @@ namespace dry
   }
   template <typename T, typename U>
   inline Vector4<T> operator- (U f, const Vector4<T>& vec) {
-    return vec - f;
+    return Vector4<T>(f - vec.x, f - vec.y, f - vec.z, f - vec.w);
   }
 }
