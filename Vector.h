@@ -39,7 +39,7 @@ namespace dry
       return *this;
     }
     template <typename U>
-    Vector2<T> operator-=(U f)
+    Vector2 operator-=(U f)
     {
       x -= f;
       y -= f;
