@@ -39,6 +39,35 @@ namespace dry
     T a00;  T a01;
     T a10;  T a11;
 
+    template <typename U>
+    Matrix2 operator*=(U f)
+    {
+      a00 *= f; a01 *= f;
+      a10 *= f; a11 *= f;
+      return *this;
+    }
+    template <typename U>
+    Matrix2 operator/=(U f)
+    {
+      a00 /= f; a01 /= f;
+      a10 /= f; a11 /= f;
+      return *this;
+    }
+    template <typename U>
+    Matrix2 operator+=(U f)
+    {
+      a00 += f; a01 += f;
+      a10 += f; a11 += f;
+      return *this;
+    }
+    template <typename U>
+    Matrix2 operator-=(U f)
+    {
+      a00 -= f; a01 -= f;
+      a10 -= f; a11 -= f;
+      return *this;
+    }
+
     static Matrix2 Identity() { return Matrix2(T(1), T(0), T(0), T(1)); }
   };
   template <typename T>
@@ -57,6 +86,39 @@ namespace dry
     T a10;  T a11;  T a12;
     T a20;  T a21;  T a22;
 
+    template <typename U>
+    Matrix3 operator*=(U f)
+    {
+      a00 *= f; a01 *= f; a02 *= f;
+      a10 *= f; a11 *= f; a12 *= f;
+      a20 *= f; a21 *= f; a22 *= f;
+      return *this;
+    }
+    template <typename U>
+    Matrix3 operator/=(U f)
+    {
+      a00 /= f; a01 /= f; a02 /= f;
+      a10 /= f; a11 /= f; a12 /= f;
+      a20 /= f; a21 /= f; a22 /= f;
+      return *this;
+    }
+    template <typename U>
+    Matrix3 operator+=(U f)
+    {
+      a00 += f; a01 += f; a02 += f;
+      a10 += f; a11 += f; a12 += f;
+      a20 += f; a21 += f; a22 += f;
+      return *this;
+    }
+    template <typename U>
+    Matrix3 operator-=(U f)
+    {
+      a00 -= f; a01 -= f; a02 -= f;
+      a10 -= f; a11 -= f; a12 -= f;
+      a20 -= f; a21 -= f; a22 -= f;
+      return *this;
+    }
+
     static Matrix3 Identity() { return Matrix3(T(1), T(0), T(0), T(0), T(1), T(0), T(0), T(0), T(1)); }
   };
   template <typename T>
@@ -74,6 +136,39 @@ namespace dry
     T a00;  T a01;  T a02;  T a03;
     T a10;  T a11;  T a12;  T a13;
     T a20;  T a21;  T a22;  T a23;
+
+    template <typename U>
+    Matrix3x4 operator*=(U f)
+    {
+      a00 *= f; a01 *= f; a02 *= f; a03 *= f;
+      a10 *= f; a11 *= f; a12 *= f; a13 *= f;
+      a20 *= f; a21 *= f; a22 *= f; a23 *= f;
+      return *this;
+    }
+    template <typename U>
+    Matrix3x4 operator/=(U f)
+    {
+      a00 /= f; a01 /= f; a02 /= f; a03 /= f;
+      a10 /= f; a11 /= f; a12 /= f; a13 /= f;
+      a20 /= f; a21 /= f; a22 /= f; a23 /= f;
+      return *this;
+    }
+    template <typename U>
+    Matrix3x4 operator+=(U f)
+    {
+      a00 += f; a01 += f; a02 += f; a03 += f;
+      a10 += f; a11 += f; a12 += f; a13 += f;
+      a20 += f; a21 += f; a22 += f; a23 += f;
+      return *this;
+    }
+    template <typename U>
+    Matrix3x4 operator-=(U f)
+    {
+      a00 -= f; a01 -= f; a02 -= f; a03 -= f;
+      a10 -= f; a11 -= f; a12 -= f; a13 -= f;
+      a20 -= f; a21 -= f; a22 -= f; a23 -= f;
+      return *this;
+    }
 
     static Matrix3x4 Identity() { return Matrix3x4(T(1), T(0), T(0), T(0), T(0), T(1), T(0), T(0), T(0), T(0), T(1), T(0)); }
   };
