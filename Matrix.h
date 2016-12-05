@@ -36,6 +36,10 @@ namespace dry
       : a00(a00), a01(a01)
       , a10(a10), a11(a11) {}
 
+    template <typename U>
+    Matrix2(const Matrix2<U>& other)
+      : a00(T(other.a00)), a01(T(other.a01)), a10(T(other.a10)), a11(T(other.a11)) {}
+
     T a00;  T a01;
     T a10;  T a11;
 
@@ -81,6 +85,12 @@ namespace dry
       : a00(a00), a01(a01), a02(a02)
       , a10(a10), a11(a11), a12(a12)
       , a20(a20), a21(a21), a22(a22) {}
+
+    template <typename U>
+    Matrix3(const Matrix3<U>& other)
+      : a00(T(other.a00)), a01(T(other.a01)), a02(T(other.a02))
+      , a10(T(other.a10)), a11(T(other.a11)), a12(T(other.a12))
+      , a20(T(other.a20)), a21(T(other.a21)), a22(T(other.a22)) {}
 
     T a00;  T a01;  T a02;
     T a10;  T a11;  T a12;
@@ -132,6 +142,12 @@ namespace dry
       : a00(a00), a01(a01), a02(a02), a03(a03)
       , a10(a10), a11(a11), a12(a12), a13(a13)
       , a20(a20), a21(a21), a22(a22), a23(a23) {}
+
+    template <typename U>
+    Matrix3x4(const Matrix3x4<U>& other)
+      : a00(T(other.a00)), a01(T(other.a01)), a02(T(other.a02)), a03(T(other.a03))
+      , a10(T(other.a10)), a11(T(other.a11)), a12(T(other.a12)), a13(T(other.a13))
+      , a20(T(other.a20)), a21(T(other.a21)), a22(T(other.a22)), a23(T(other.a23)) {}
 
     T a00;  T a01;  T a02;  T a03;
     T a10;  T a11;  T a12;  T a13;
