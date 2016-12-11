@@ -25,6 +25,12 @@ namespace dry
   }
 
   template <typename T>
+  inline Matrix2<T> transpose(const Matrix2<T>& mat)
+  {
+    return Matrix2<T>(mat.a00, mat.a10, mat.a01, mat.a11);
+  }
+
+  template <typename T>
   inline Matrix2<T> getRotation(const T& angle)
   {
     return Matrix2<T>(
@@ -42,12 +48,11 @@ namespace dry
   }
 
   template <typename T>
-  inline Matrix3<T> getCrossMatrix(const Matrix3<T>& mat)
   {
     return Matrix3<T>(
-      0, -mat.z, mat.y,
-      mat.z, 0, -mat.x,
-      -mat.y, mat.x, 0);
+      0, -vec.z, vec.y,
+      vec.z, 0, -vec.x,
+      -vec.y, vec.x, 0);
   }
 
   template <typename T>
@@ -85,7 +90,16 @@ namespace dry
       (mat.a00 * mat.a11 - mat.a10 * mat.a01) * invdet);
   }
 
-  // Operator overloads for Matrix types
+  template <typename T>
+  inline Matrix3<T> transpose(const Matrix3<T>& mat)
+  {
+    return Matrix3<T>(
+      mat.a00, mat.a10, mat.a20, 
+      mat.a01, mat.a11, mat.a21, 
+      mat.a02, mat.a12, mat.a22);
+  }
+
+  // Operator overloads for MatrixX types
   template <typename T, typename U>
   inline Matrix2<T> operator* (Matrix2<T> mat, U f) {
     mat *= f;
@@ -298,7 +312,7 @@ namespace dry
       mat1.a20 - mat2.a20, mat1.a21 - mat2.a21, mat1.a22 - mat2.a22, mat1.a23 - mat2.a23);
   }
 
-  // Operator overloads for Matrix and Vector
+  // Operator overloads for MatrixX and Vector
   template <typename T>
   inline Vector3<T> operator* (const Matrix3<T>& mat, const Vector2<T>& vec) {
     // Allow this, assume last element of the required 3D vector is 1
