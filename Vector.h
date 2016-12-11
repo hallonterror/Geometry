@@ -5,6 +5,65 @@
 namespace dry
 {
   template <typename T>
+  class VectorX
+  {
+  public:
+    VectorX(size_t elements) : size(elements) 
+    {
+      v = new T[size];
+    };
+    ~VectorX()
+    {
+      delete[] v;
+    }
+
+    T* v;
+
+    T& operator[](size_t idx) { return v[idx]; }
+    const T& operator[](size_t idx) const { return v[idx]; }
+
+    template <typename U>
+    VectorX operator*=(U f)
+    {
+      for (size_t i = 0; i < size; ++i)
+        v[i] *= f;
+      return *this;
+    }
+    template <typename U>
+    VectorX operator/=(U f)
+    {
+      for (size_t i = 0; i < size; ++i)
+        v[i] /= f;
+      return *this;
+    }
+    template <typename U>
+    VectorX operator+=(U f)
+    {
+      for (size_t i = 0; i < size; ++i)
+        v[i] += f;
+      return *this;
+    }
+    template <typename U>
+    VectorX operator-=(U f)
+    {
+      for (size_t i = 0; i < size; ++i)
+        v[i] -= f;
+      return *this;
+    }
+
+    T norm() { 
+      return std::sqrt(norm2());
+    }
+    T norm2()
+    { 
+      T sum(0);
+      for (size_t i = 0; i < size; ++i)
+        v[i] += v[i] * v[i];
+      return sum;
+    }
+  };
+
+  template <typename T>
   class Vector2
   {
   public:
@@ -157,10 +216,12 @@ namespace dry
     T norm2() { return vec.x*vec.x + vec.y*vec.y + vec.z*vec.z + vec.w*vec.w; }
   };
 
+  typedef VectorX<float32> VectorXf;
   typedef Vector2<float32> Vector2f;
   typedef Vector3<float32> Vector3f;
   typedef Vector4<float32> Vector4f;
 
+  typedef VectorX<float64> VectorXd;
   typedef Vector2<float64> Vector2d;
   typedef Vector3<float64> Vector3d;
   typedef Vector4<float64> Vector4d;
