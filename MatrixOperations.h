@@ -48,6 +48,7 @@ namespace dry
   }
 
   template <typename T>
+  inline Matrix3<T> getCrossMatrix(const Vector3<T>& vec)
   {
     return Matrix3<T>(
       0, -vec.z, vec.y,
